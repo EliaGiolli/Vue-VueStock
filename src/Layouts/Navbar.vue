@@ -1,5 +1,5 @@
 <template>
-<nav class="w-full h-20 p-3 flex justify-around items-center text-center bg-green-200">
+<nav class="w-full h-20 p-3 flex justify-around items-center text-center bg-green-200 sticky top-0">
     <p class="text-2xl uppercase">LOGO</p>
     <ul class="flex items-center">
       <li><a href="/">About</a></li>
