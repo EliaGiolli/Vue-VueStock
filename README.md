@@ -1,29 +1,29 @@
-# products
+# 📦 Vue Inventory Manager
 
-This template should help get you started developing with Vue 3 in Vite.
+Un'applicazione semplice ma estensibile costruita con **Vue 3 + `<script setup>`**, pensata per gestire un piccolo inventario di prodotti.  
+Permette di **aggiungere prodotti**, **visualizzarli dinamicamente** con `v-for`, e prepara il terreno per le future funzionalità di **modifica** e **cancellazione** (CRUD completo).
 
-## Recommended IDE Setup
+![Vue 3 + Tailwind CSS](https://img.shields.io/badge/vue-3.x-brightgreen.svg) ![TailwindCSS](https://img.shields.io/badge/tailwind-4.x-blue.svg) ![License](https://img.shields.io/badge/license-MIT-blue)
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+---
 
-## Customize configuration
+## 🚀 Funzionalità attuali
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+- ✅ **Aggiunta di prodotti** tramite form
+- ✅ **Visualizzazione dinamica** con `v-for`
+- ✅ Composizione in componenti (`Navbar`, `InputForm`, `Footer`)
+- ✅ Utilizzo di `ref()` e `reactive()` da Vue 3 Composition API
+- ✅ UI moderna con **Tailwind CSS**
 
-## Project Setup
+---
 
-```sh
-npm install
-```
+## 🔧 Tecnologie usate
 
-### Compile and Hot-Reload for Development
+- **[Vue 3](https://vuejs.org/)** (con Composition API e `<script setup>`)
+- **[Tailwind CSS](https://tailwindcss.com/)** v4 per uno stile responsive e moderno
+- Vite (opzionale, se stai usando un setup moderno)
 
-```sh
-npm run dev
-```
+---
 
-### Compile and Minify for Production
+## 🧠 Struttura del progetto
 
-```sh
-npm run build
-```
