@@ -3,9 +3,9 @@
     <p class="text-2xl uppercase font-bold">LOGO</p>
     <!-- DESKTOP MENU-->
     <ul class="hidden md:flex items-center gap-3">
-      <li><a href="/">About</a></li>
-      <li><a href="/">Tours</a></li>
-      <li><a href="/">Contacts</a></li>
+      <li><a href="/">Su di Noi</a></li>
+      <li><a href="/">Servizi</a></li>
+      <li><a href="/">Contatti</a></li>
     </ul>
     <button 
       class="md:hidden bg-emerald-500 hover:bg-emerald-600 p-2 rounded-lg"
@@ -16,9 +16,9 @@
   </nav>
   <!--MOBILE MENU-->
   <div v-if="isOpen" class="md:hidden bg-green-200 w-full flex flex-col items-center gap-3 py-4 border-b border-emerald-500 border-b-2 border-b-emerald-500">
-    <a href="/" class="block">About</a>
-    <a href="/" class="block">Tours</a>
-    <a href="/" class="block">Contacts</a>
+    <a href="/" class="block">Su di Noi</a>
+    <a href="/" class="block">Servizi</a>
+    <a href="/" class="block">Contatti</a>
   </div>
 </template>
 
