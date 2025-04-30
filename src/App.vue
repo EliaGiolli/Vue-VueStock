@@ -8,23 +8,35 @@
           <p class="text-lg p-2">{{ item.name }}</p>
           <p class="text-lg p-2">Prezzo: €{{ item.price }}</p>
           <p class="text-lg p-2">Quantità: {{ item.quantity }}</p>
+          <button
+          class="bg-emerald-500 hover:bg-emerald-600 text-white text-lg rounded-lg shadow-lg shadow-grey-900 p-4 my-5"
+          @click="deleteItem(index)"    
+          >
+            Elimina
+          </button>
         </div>
       </div>
   </main>
+  <Footer />
 </template>
 
 <script setup>
 import { ref } from 'vue';
 import Navbar from './Layouts/Navbar.vue';
 import InputForm from './Layouts/InputForm.vue';
+import Footer from './Layouts/Footer.vue';
 
 const inventory = ref([]);
 
 function addToInventory(productList) {
-  console.log('Product received:', productList);
+  
   inventory.value.push({
     id:Date.now(),
     ...productList});
+}
+
+function deleteItem(index){
+  inventory.value.splice(index,1);
 }
 
 </script>
