@@ -17,12 +17,14 @@
         </div>
       </div>
   </main>
+  <Footer />
 </template>
 
 <script setup>
 import { ref } from 'vue';
 import Navbar from './Layouts/Navbar.vue';
 import InputForm from './Layouts/InputForm.vue';
+import Footer from './Layouts/Footer.vue';
 
 const inventory = ref([]);
 
