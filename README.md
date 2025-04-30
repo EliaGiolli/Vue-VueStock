@@ -25,5 +25,33 @@ Permette di **aggiungere prodotti**, **visualizzarli dinamicamente** con `v-for`
 
 ---
 
-## 🧠 Struttura del progetto
+## ⚙️ Setup del progetto
+
+### 1. Clona la repo
+
+```bash
+git clone https://github.com/tuo-username/vue-inventory-manager.git
+cd vue-inventory-manager
+```
+### Installa le dipendenze
+```
+npm install
+```
+### Avvia il server locale
+```
+npm run dev
+```
+### Obiettivi futuri
+📌 Obiettivi futuri
+ - Implementare modifica (Update) dei prodotti
+-  Local Storage
+-  Cambio tema (chiaro/scuro)
+
+🤝 Contribuire
+Hai idee o suggerimenti? Apri una issue o mandami una pull request!
+Questo progetto è pensato per studenti, principianti o chiunque voglia capire meglio Vue 3 in pratica.
+
+
+
+
 
