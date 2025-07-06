@@ -10,7 +10,7 @@
           <p class="text-lg p-2">Quantità: {{ item.quantity }}</p>
           <button
           class="bg-emerald-500 hover:bg-emerald-600 text-white text-lg rounded-lg shadow-lg shadow-grey-900 p-4 my-5"
-          @click="deleteItem(index)"    
+          @click="deleteItem(id)"    
           >
             Elimina
           </button>
@@ -21,21 +21,38 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import Navbar from './Layouts/Navbar.vue';
 import InputForm from './Layouts/InputForm.vue';
 import Footer from './Layouts/Footer.vue';
 
 const inventory = ref([]);
 
-function addToInventory(productList) {
-  
-  inventory.value.push({
-    id:Date.now(),
-    ...productList});
+//fetch inventory from the backend
+async function fetchInventory() {
+  const response = await fetch('http://localhost:3000/api/inventory');
+  inventory.value = await response.json();
 }
 
-function deleteItem(index){
+onMounted(fetchInventory);
+
+async function addToInventory(productlist) {
+  const res = await fetch('http://localhost:3000/api/inventory', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json'},
+    body: JSON.stringify(productlist)
+  });
+  if(res.ok) {
+    const newProduct = await res.json();
+    inventory.value.push(newProduct);
+  }
+}
+
+async function deleteItem(index){
+  const product = inventory.value[index];
+  await fetch(`http://localhost:3000/api/inventory/${product.id}`, {
+    method: 'DELETE'
+  });
   inventory.value.splice(index,1);
 }
 
