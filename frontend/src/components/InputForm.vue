@@ -38,6 +38,7 @@
 
 <script setup>
 import { reactive } from 'vue';
+import Button from './Button.vue';
 
 const emit = defineEmits(['addProduct'])
 
