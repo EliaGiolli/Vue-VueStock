@@ -7,12 +7,12 @@
       <li><a href="/">Servizi</a></li>
       <li><a href="/">Contatti</a></li>
     </ul>
-    <button 
-      class="md:hidden bg-emerald-500 hover:bg-emerald-600 p-2 rounded-lg"
+    <Button 
+      size="md"
       @click="isOpen = !isOpen"
       >
       {{ isOpen ? 'chiudi' : 'menu' }}
-    </button>
+    </Button>
   </nav>
   <!--MOBILE MENU-->
   <div v-if="isOpen" class="md:hidden bg-green-200 w-full flex flex-col items-center gap-3 py-4 border-b border-emerald-500 border-b-2 border-b-emerald-500">
@@ -24,6 +24,7 @@
 
 <script setup>
 import { ref } from 'vue';
+import Button from './Button.vue';
 
 const isOpen = ref(false);
 </script>

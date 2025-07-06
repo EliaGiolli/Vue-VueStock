@@ -25,11 +25,11 @@
             v-model.lazy.number.trim="productList.price"
             >
     </div>
-    <button 
-        class="bg-emerald-500 hover:bg-emerald-600 text-white text-lg rounded-lg shadow-lg shadow-grey-900 p-4 my-5"
+    <Button 
+        size="md"
         type="submit">
         Aggiungi prodotto
-    </button>
+    </Button>
 
 </form>
 
