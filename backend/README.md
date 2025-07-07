@@ -10,7 +10,7 @@ This is the backend for the VueStock project, built with **Express.js** and a mo
 - [cors](https://www.npmjs.com/package/cors) - Enable Cross-Origin Resource Sharing
 - [dotenv](https://www.npmjs.com/package/dotenv) - Environment variable management
 - [nodemon](https://www.npmjs.com/package/nodemon) - Auto-restart server on file changes
-- [mongoose](https://www.npmjs.com/package/mongoose) - (Not used yet, for future MongoDB integration)
+- [mongoose](https://www.npmjs.com/package/mongoose) - MongoDB object modeling for Node.js
 
 ---
 
@@ -70,6 +70,43 @@ All endpoints are prefixed with `/api/inventory`.
   "quantity": 10
 }
 ```
+## 🗄️ How MongoDB Works in This Project
+
+The VueStock backend now uses **MongoDB** as its persistent database, replacing the previous in-memory storage. All product data is stored in a MongoDB collection, ensuring that your inventory is saved even after server restarts.
+
+- **Connection:**  
+  The backend connects to a MongoDB instance using [Mongoose](https://mongoosejs.com/), which provides a schema-based solution to model your application data.
+- **Schema:**  
+  A Mongoose schema defines the structure of each product (fields like `name`, `price`, `quantity`), ensuring data consistency.
+- **CRUD Operations:**  
+  All API endpoints interact with MongoDB through Mongoose models. When you add, fetch, or delete products, these actions are performed directly on the database.
+
+**Example:**  
+When you send a POST request to `/api/inventory`, the backend creates a new document in the MongoDB `products` collection.  
+A GET request fetches all documents (products) from the collection.
+
+---
+
+## 🏗️ MVC Architecture in VueStock Backend
+
+The backend follows the **MVC (Model-View-Controller)** pattern for clean code organization and scalability:
+
+- **Model:**  
+  Defines the data structure and handles all interactions with MongoDB.  
+  Example: The `Product` model (using Mongoose) describes what a product is and provides methods to create, read, and delete products in the database.
+
+- **View:**  
+  Since this is an API backend, there are no traditional views (HTML templates). Instead, the "view" is the JSON data sent as API responses.
+
+- **Controller:**  
+  Contains the business logic for each API endpoint. Controllers receive requests, interact with the model, and return responses.  
+  Example: The inventory controller handles requests to add, fetch, or delete products by calling the appropriate model methods and sending JSON responses.
+
+**Benefits of MVC:**
+- Separation of concerns (data, logic, and response handling are kept distinct)
+- Easier to maintain and extend
+- Promotes code reusability and clarity
+
 
 ---
 
