@@ -18,6 +18,8 @@ const props = defineProps({
   ariaLabel: { type: String, default: '' }
 });
 
+const emit = defineEmits(['click'])
+
 const buttonClass = computed(() => {
   let base = 'rounded focus:outline-none transition font-semibold';
   let size = '';

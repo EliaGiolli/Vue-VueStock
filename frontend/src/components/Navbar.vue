@@ -13,22 +13,29 @@
       size="md"
       @click="isOpen = !isOpen"
       >
-      {{ isOpen ? 'chiudi' : 'menu' }}
+      <Icon v-if="isOpen" icon="lucide:minimize-2" width="24" height="24" />
+      <Icon v-else icon="lucide:menu" width="24" height="24" />
     </Button>
   </nav>
   <!--MOBILE MENU-->
-  <div v-if="isOpen" class="md:hidden bg-emerald-600 w-full flex flex-col items-center gap-3 py-4 border-b-2 border-emerald-800">
-    <RouterLink to="/" class="block text-white hover:bg-lime-500 hover:p-2 rounded-md">Su di Noi</RouterLink>
-    <RouterLink to="/products" class="block text-white hover:bg-lime-500 hover:p-2 rounded-md">Prodotti</RouterLink>
-    <RouterLink to="/contacts" class="block text-white hover:bg-lime-500 hover:p-2 rounded-md">Contatti</RouterLink>
-  </div>
+  <ul v-if="isOpen" class="sticky top-20 left-0 md:hidden bg-emerald-600 w-full flex flex-col items-center gap-3 py-4 border-b-2 border-emerald-800">
+    <li>
+      <RouterLink to="/" @click="isOpen = false" class="block text-white hover:bg-lime-500 rounded-md transition-all duration-200">Su di Noi</RouterLink>
+    </li>
+    <li>
+      <RouterLink to="/products" @click="isOpen = false" class="block text-white hover:bg-lime-500 rounded-md transition-all duration-200">Prodotti</RouterLink>
+    </li>
+    <li>
+      <RouterLink to="/contacts" @click="isOpen = false" class="block text-white hover:bg-lime-500 rounded-md transition-all duration-200">Contatti</RouterLink>
+    </li>
+  </ul>
 </template>
 
 <script setup>
 import { ref } from 'vue';
 import { RouterLink } from 'vue-router';
+import { Icon } from '@iconify/vue';
 import Button from './Button.vue';
 
 const isOpen = ref(false);
-console.log(isOpen.value)
 </script>
