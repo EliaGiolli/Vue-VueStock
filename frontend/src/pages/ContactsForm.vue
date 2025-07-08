@@ -10,10 +10,10 @@
         <Field 
             type="text" 
             name="name" 
-            placeholder="Nome"
+            placeholder="Es. Mario Rossi"
             :rules="validateUsername"
-            class="hover:bg-gray-100 border-2 border-gray-900 rounded-md focus:outline-emerald-500"
-            v-model.lazy.trim="userCredentials.name"
+            class="hover:bg-gray-100 border-2 px-2 border-gray-900 rounded-md focus:outline-emerald-500"
+            v-model="userCredentials.name"
             />
     </div>
 
@@ -24,9 +24,10 @@
         <Field 
             type="email" 
             name="email"
+            placeholder="es. mariorossi90@gmail.com"
             :rules="validateEmail" 
-            class="hover:bg-gray-100 border-2 border-gray-900 rounded-md focus:outline-emerald-500"
-            v-model.lazy.trim="userCredentials.email"
+            class="hover:bg-gray-100 border-2 min-w-[250px] px-2 border-gray-900 rounded-md focus:outline-emerald-500"
+            v-model="userCredentials.email"
             />
     </div>
     
@@ -76,7 +77,7 @@ const userCredentials = reactive({
 
 const successMessage = ref('');
 const errorMessage = ref('');
-const isLoading = ref('false');
+const isLoading = ref(false);
 
 //API call - POST method
 const handleSubmit = async () => {
@@ -104,7 +105,7 @@ const handleSubmit = async () => {
     setTimeout(() => {
       successMessage.value = '';
     }, 3000);
-    
+
   } catch (error) {
     errorMessage.value = '❌ Errore durante l\'invio del messaggio.';
     console.error(error);
@@ -126,7 +127,7 @@ function validateEmail(value){
     if(!value) return 'Questo campo è vuoto';
     
     const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
-    if(regex.test(value)) return 'La mail di questo campo deve essere valida';
+    if(!regex.test(value)) return 'La mail di questo campo deve essere valida';
 
     return true;
 }
@@ -138,8 +139,8 @@ function validateUsername(value) {
     if(value.length < 2) return 'Inserisci almeno due lettere';
 
     //It controls that the field contains only letters and spaces
-    const regexUserName = !/^[a-zA-ZÀ-ÿ\s'-]+$/;
-    if(regexUserName.test(value)) return 'inserisci solo lettere';
+    const regexUserName = /^[a-zA-ZÀ-ÿ\s'-]+$/;
+    if(!regexUserName.test(value)) return 'inserisci solo lettere';
 
     return true;
 }
@@ -150,8 +151,8 @@ function validateMessage(value){
     
     if(value.length < 10) return 'Il messaggio deve essere lungo almeno dieci lettere'
 
-    const regexMessage = !/^[a-zA-ZÀ-ÿ\s'-]+$/; 
-    if(regexMessage.test(value)) return 'inserisci solo lettere';
+    const regexMessage = /^[a-zA-ZÀ-ÿ\s'-]+$/; 
+    if(!regexMessage.test(value)) return 'inserisci solo lettere';
 
     return true;
 }
