@@ -47,7 +47,7 @@ const error = ref('');
 const fetchProducts = async () => {
   try {
     loading.value = true;
-    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/inventory`);
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/products`);
     if (!response.ok) throw new Error('Errore nel caricamento');
     products.value = await response.json();
   } catch (err) {

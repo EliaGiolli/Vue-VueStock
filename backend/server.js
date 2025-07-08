@@ -3,6 +3,7 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const productList = require('./routes/productsRoute');
+const contactList = require('./routes/contactsRoute')
 
 dotenv.config();
 const app = express();
@@ -17,6 +18,7 @@ mongoose.connect(process.env.MONGO_URI)
   .catch(err => console.error('❌ Errore connessione Mongo:', err));
 
 
-app.use('/api/inventory', productList);
+app.use('/api/products', productList);
+app.use('/api/contacts', contactList);
 
 app.listen(3000, () => console.log('✅ Backend su', process.env.LOCALHOST));

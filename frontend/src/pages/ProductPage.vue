@@ -24,7 +24,7 @@ const inventoryRef = ref(null);
 
 const handleAddProduct = async (product) => {
   try {
-    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/inventory`, {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/products`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

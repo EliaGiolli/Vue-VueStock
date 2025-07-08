@@ -10,7 +10,7 @@ exports.getAllProducts = async (req, res) => {
   }
 };
 
-// 📦 POST /api/products
+// POST /api/products
 exports.createProduct = async (req, res) => {
   try {
     const { name, price, quantity } = req.body;
@@ -21,7 +21,7 @@ exports.createProduct = async (req, res) => {
   }
 };
 
-// 📦 DELETE /api/products/:id
+// DELETE /api/products/:id
 exports.deleteProduct = async (req, res) => {
   try {
     const { id } = req.params;
