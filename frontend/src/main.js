@@ -1,4 +1,4 @@
-import './assets/style.css'
+import '../src/style.css'
 
 import { createApp } from 'vue'
 import PrimeVue from 'primevue/config';

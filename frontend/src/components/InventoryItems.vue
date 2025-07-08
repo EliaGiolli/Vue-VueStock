@@ -24,7 +24,7 @@
         <p class="text-gray-600">Quantità: {{ product.quantity }}</p>
         <p class="text-emerald-600 font-bold">€{{ product.price }}</p>
         <Button 
-          variant="navbar" 
+          variant="" 
           size="sm" 
           @click="deleteProduct(product.id)"
           class="mt-2"

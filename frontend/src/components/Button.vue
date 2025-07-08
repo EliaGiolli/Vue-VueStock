@@ -30,7 +30,7 @@ const buttonClass = computed(() => {
 
   // Variant
   if (props.variant === 'navbar') {
-    variant = 'bg-emerald-700 hover:bg-emerald-800 text-white';
+    variant = 'bg-lime-500 hover:bg-lime-700 text-white';
   } else if (props.variant === 'theme') {
     variant = 'bg-gray-200 hover:bg-gray-300 text-gray-800 border border-gray-400';
   } else {
