@@ -27,8 +27,10 @@
     </div>
     <Button 
         size="md"
-        type="submit">
-        Aggiungi prodotto
+        type="submit"
+        class="flex gap-2">
+        <Icon icon="lucide:mouse-pointer-click" width="24" height="24" />
+        <span>Aggiungi un prodotto</span>
     </Button>
 
 </form>
@@ -38,6 +40,7 @@
 
 <script setup>
 import { reactive } from 'vue';
+import { Icon } from '@iconify/vue';
 import Button from './Button.vue';
 
 const emit = defineEmits(['addProduct'])

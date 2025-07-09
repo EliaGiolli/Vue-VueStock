@@ -27,9 +27,10 @@
           variant="" 
           size="sm" 
           @click="deleteProduct(product.id)"
-          class="mt-2"
+          class="mt-2 flex gap-2"
         >
-          Elimina
+        <Icon icon="lucide:mouse-pointer-click" width="20" height="20" />
+          <span>Elimina</span>
         </Button>
       </div>
     </div>
@@ -38,6 +39,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
+import { Icon } from '@iconify/vue';
 import Button from './Button.vue';
 
 const products = ref([]);
@@ -59,7 +61,7 @@ const fetchProducts = async () => {
 
 const deleteProduct = async (id) => {
   try {
-    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/inventory/${id}`, {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/products/${id}`, {
       method: 'DELETE'
     });
     if (!response.ok) throw new Error('Errore nell\'eliminazione');

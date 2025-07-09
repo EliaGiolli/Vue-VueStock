@@ -36,7 +36,7 @@ const buttonClass = computed(() => {
   } else if (props.variant === 'theme') {
     variant = 'bg-gray-200 hover:bg-gray-300 text-gray-800 border border-gray-400';
   } else {
-    variant = 'bg-emerald-500 hover:bg-emerald-600 text-white';
+    variant = 'bg-emerald-500 hover:bg-emerald-600 text-white shadow shadow-gray-400';
   }
 
   return [base, size, variant].join(' ');

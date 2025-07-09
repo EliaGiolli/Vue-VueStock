@@ -21,4 +21,9 @@ mongoose.connect(process.env.MONGO_URI)
 app.use('/api/products', productList);
 app.use('/api/contacts', contactList);
 
+process.on('Errore inaspettato', (err) => {
+  console.error('errore non gestito', err);
+  process.exit();
+})
+
 app.listen(3000, () => console.log('✅ Backend su', process.env.LOCALHOST));

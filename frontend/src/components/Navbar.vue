@@ -1,11 +1,17 @@
 <template>
-<nav class="w-full h-20 p-3 flex justify-around items-center text-center bg-emerald-500 sticky top-0 border-b-2 border-b-emerald-600">
+<nav class="w-full h-20 p-3 flex justify-around items-center text-center md:text-lg bg-emerald-500 sticky top-0 z-50 border-b-2 border-b-emerald-600">
     <RouterLink to="/" class="text-white text-2xl uppercase font-bold">VueStock</RouterLink>
     <!-- DESKTOP MENU-->
     <ul class="hidden md:flex items-center gap-4">
-      <RouterLink to="/" class="text-white hover:bg-lime-500 hover:p-2 rounded-md">Su di Noi</RouterLink>
-      <RouterLink to="/products" class="text-white hover:bg-lime-500 hover:p-2 rounded-md">Prodotti</RouterLink>
-      <RouterLink to="/contacts" class="text-white hover:bg-lime-500 hover:p-2 rounded-md">Contatti</RouterLink>
+      <li>
+        <RouterLink to="/" class="text-white hover:bg-lime-500 rounded-md transition-all duration-200">Su di Noi</RouterLink>
+      </li>
+      <li>
+        <RouterLink to="/products" class="text-white hover:bg-lime-500 rounded-md transition-all duration-200">Prodotti</RouterLink>
+      </li>
+      <li>
+        <RouterLink to="/contacts" class="text-white hover:bg-lime-500 rounded-md transition-all duration-200">Contatti</RouterLink>
+      </li>
     </ul>
     <Button 
       class="flex md:hidden"
@@ -18,7 +24,7 @@
     </Button>
   </nav>
   <!--MOBILE MENU-->
-  <ul v-if="isOpen" class="sticky top-20 left-0 md:hidden bg-emerald-600 w-full flex flex-col items-center gap-3 py-4 border-b-2 border-emerald-800">
+  <ul v-if="isOpen" class="sticky top-20 left-0 z-50 md:hidden bg-emerald-600 w-full flex flex-col items-center gap-3 py-4 border-b-2 border-emerald-800">
     <li>
       <RouterLink to="/" @click="isOpen = false" class="block text-white hover:bg-lime-500 rounded-md transition-all duration-200">Su di Noi</RouterLink>
     </li>

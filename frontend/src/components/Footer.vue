@@ -4,14 +4,14 @@
         
         <!-- Brand -->
         <div class="text-lg font-semibold text-white">
-          © {{ currentYear }} VueStack. All rights reserved.
+          © {{ currentYear }} VueStack. Tutti i diritti riservati.
         </div>
   
         <!-- Navigation Links -->
         <nav class="flex space-x-6 text-sm">
-          <RouterLink to="/" class="hover:text-white transition">Su di noi</RouterLink>
-          <RouterLink to="/products" class="hover:text-white transition">Prodotti</RouterLink>
-          <RouterLink to="/contacts" class="hover:text-white transition">Contatti</RouterLink>
+          <RouterLink to="/" class="hover:text-white hover:bg-lime-500 transition-all duration-200">Su di noi</RouterLink>
+          <RouterLink to="/products" class="hover:text-white hover:bg-lime-500 transition-all duration-200">Prodotti</RouterLink>
+          <RouterLink to="/contacts" class="hover:text-white hover:bg-lime-500 transition-all duration-200">Contatti</RouterLink>
           <a
             href="https://www.linkedin.com/in/tuo-username"
             target="_blank"
