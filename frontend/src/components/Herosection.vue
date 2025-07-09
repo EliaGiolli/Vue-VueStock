@@ -24,7 +24,7 @@
 
 
 <script setup>
-import HerosectionImg from '@/assets/herosection-img.jpg'
+import HerosectionImg from '../assets/Herosection-img.jpg'
 import Button from './Button.vue';
 import { RouterLink } from 'vue-router';
 import { Icon } from '@iconify/vue';
