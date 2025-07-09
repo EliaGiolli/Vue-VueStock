@@ -51,7 +51,12 @@ const fetchProducts = async () => {
     loading.value = true;
     const response = await fetch(`${import.meta.env.VITE_API_URL}/api/products`);
     if (!response.ok) throw new Error('Errore nel caricamento');
-    products.value = await response.json();
+    const data = await response.json();
+    // Map _id to id for frontend consistency(Mongoose espexts _id)
+    products.value = data.map(p => ({
+      ...p,
+      id: p._id
+    }));
   } catch (err) {
     error.value = err.message;
   } finally {
