@@ -11,17 +11,28 @@ You can **add products**, **display them dynamically** with `v-for`, and it's re
 
 - ✅ **Add products** via form
 - ✅ **Dynamic display** with `v-for`
-- ✅ Component-based structure (`Navbar`, `InputForm`, `Footer`)
-- ✅ Use of `ref()` and `reactive()` from Vue 3 Composition API
+- ✅ **Delete products** (full backend integration)
+- ✅ **Component-based structure** (`Navbar`, `InputForm`, `Footer`, etc.)
+- ✅ **Form validation with VeeValidate** for robust and beginner-friendly input checking
 - ✅ Modern UI with **Tailwind CSS**
+- ✅ **MongoDB integration** for persistent product storage
+- ✅ **Vue Router** for page navigation
+- ✅ **PrimeVue** for rich UI components
+- ✅ **Vue Iconify** for beautiful icons
+- ✅ **Automatic mapping of MongoDB _id to id** for frontend-backend consistency
 
 ---
 
 ## 🔧 Technologies Used
 
 - **[Vue 3](https://vuejs.org/)** (with Composition API and `<script setup>`)
+- **[Vue Router](https://router.vuejs.org/)** for SPA navigation
+- **[PrimeVue](https://www.primefaces.org/primevue/)** for modern, accessible UI components
+- **[Vue Iconify](https://iconify.design/docs/vue/)** for a huge collection of icons
+- **[VeeValidate](https://vee-validate.logaretm.com/v4/)** for easy and powerful form validation
 - **[Tailwind CSS](https://tailwindcss.com/)** v4 for a responsive and modern style
-- Vite (for modern frontend development)
+- **MongoDB** (via backend) for real database storage
+- **Vite** (for modern frontend development)
 
 ---
 
@@ -60,11 +71,13 @@ npm run dev
 
 ## 🔗 Backend Communication
 
-CRUD operations are performed via HTTP calls to the Express backend:
+CRUD operations are performed via HTTP calls to the Express backend (with MongoDB):
 
-- **GET** `${import.meta.env.VITE_API_URL}/api/inventory` — Get all products
-- **POST** `${import.meta.env.VITE_API_URL}/api/inventory` — Add a product
-- **DELETE** `${import.meta.env.VITE_API_URL}/api/inventory/:id` — Delete a product
+- **GET** `${import.meta.env.VITE_API_URL}/api/products` — Get all products
+- **POST** `${import.meta.env.VITE_API_URL}/api/products` — Add a product
+- **DELETE** `${import.meta.env.VITE_API_URL}/api/products/:id` — Delete a product
+
+**Note:** The frontend now automatically maps MongoDB's `_id` field to `id` for easier handling in Vue. This makes deleting and updating products much simpler and less error-prone for beginners.
 
 ---
 
@@ -73,7 +86,7 @@ CRUD operations are performed via HTTP calls to the Express backend:
 - Implement product editing (Update)
 - Local Storage (offline/fallback)
 - Theme switch (light/dark)
-- Integration with a real database (MongoDB)
+- Testing with Vitest and Vue Testing Library
 
 ---
 
