@@ -9,9 +9,7 @@ dotenv.config();
 const app = express();
 
 // Middlewares
-app.use(cors({
-  origin: 'https://vue-vue-stock.vercel.app'
-}));
+app.use(cors());
 app.use(express.json());
 
 // Connection to MongoDB
