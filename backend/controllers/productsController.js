@@ -29,6 +29,7 @@ exports.deleteProduct = async (req, res) => {
     if (!deleted) return res.status(404).json({ message: 'Prodotto non trovato' });
     res.status(204).end();
   } catch (err) {
+    console.error('❌ Errore in getProducts:', error);
     res.status(500).json({ message: 'Errore nella cancellazione' });
   }
 };
