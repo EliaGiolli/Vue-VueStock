@@ -2,7 +2,7 @@
   <div class="relative w-full min-h-screen flex flex-col justify-center">
     <!-- Background Image -->
     <img
-      :src="HerosectionImg"
+      src="/herosection-img.jpg"
       alt="Hero background"
       class="absolute inset-0 w-full h-full object-cover z-0"
     />
@@ -24,7 +24,6 @@
 
 
 <script setup>
-import HerosectionImg from '../assets/Herosection-img.jpg'
 import Button from './Button.vue';
 import { RouterLink } from 'vue-router';
 import { Icon } from '@iconify/vue';
