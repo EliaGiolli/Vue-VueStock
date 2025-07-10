@@ -1,17 +1,20 @@
 <template>
-  <div class="w-full md:max-w-4xl mx-auto p-4">
+  <section class="w-full md:max-w-4xl mx-auto p-4" aria-labelledby="inventario-prodotti">
     <h2 class="text-2xl font-bold mb-4 text-center">Inventario Prodotti</h2>
     
     <div v-if="loading" class="text-center">
       <p>Caricamento...</p>
+      <Icon icon="lucide:loader-circle" width="24" height="24" class="animate-spin" />
     </div>
     
     <div v-else-if="error" class="text-center text-red-600">
       <p>{{ error }}</p>
+      <Icon icon="lucide:alert-circle" width="24" height="24" />
     </div>
     
     <div v-else-if="products.length === 0" class="text-center text-gray-500">
       <p>Nessun prodotto nell'inventario</p>
+      <Icon icon="lucide:box" width="24" height="24" />
     </div>
     
     <div v-else class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -25,6 +28,7 @@
         <p class="text-emerald-600 font-bold">€{{ product.price }}</p>
         <Button 
           variant="" 
+          aria-label="bottone per eliminare i prodotti"
           size="sm" 
           @click="deleteProduct(product.id)"
           class="mt-2 flex gap-2"
@@ -34,7 +38,7 @@
         </Button>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup>

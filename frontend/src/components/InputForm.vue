@@ -15,6 +15,7 @@
         <label for="product-quantity" class="text-xl md:text-2xl text-gray-900">Quantità</label>
         <input type="number" name="" id="product-quantity" 
             class="hover:bg-gray-100 border-2 border-gray-900 rounded-md focus:outline-emerald-500"
+            aria-required="true"
             v-model.lazy.number.trim="productList.quantity"
             >
     </div>
@@ -22,11 +23,13 @@
         <label for="product-price" class="text-xl md:text-2xl text-gray-900">Prezzo</label>
         <input type="number" name="" id="product-price" 
             class="hover:bg-gray-100 border-2 border-gray-900 rounded-md focus:outline-emerald-500"
+            aria-required="true"
             v-model.lazy.number.trim="productList.price"
             >
     </div>
     <Button 
         size="md"
+        aria-label="bottone per aggiungere un prodotto"
         type="submit"
         class="flex gap-2">
         <Icon icon="lucide:mouse-pointer-click" width="24" height="24" />

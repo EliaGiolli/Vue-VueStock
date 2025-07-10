@@ -3,7 +3,8 @@
     <!-- Background Image -->
     <img
       src="/herosection-img.jpg"
-      alt="Hero background"
+      alt="immagine di sfondo che vede due ragazze che lavorano in un magazzino"
+      role="presentation"
       class="absolute inset-0 w-full h-full object-cover z-0"
     />
 
@@ -13,7 +14,7 @@
       <h1 class="text-4xl md:text-6xl font-bold">Gestisci il tuo magazzino con semplicità</h1>
       <p class="mt-4 text-lg md:text-xl">Aggiungi, modifica, elimina. Tutto il tuo inventario in un’unica dashboard.</p>
       <RouterLink to="/products">
-        <Button size="lg" aria-label="Vai alla pagina dei prodotti" class="mt-6 flex gap-2">
+        <Button size="lg" aria-label="Vai alla pagina dei prodotti per prenotare un prodotto" class="mt-6 flex gap-2">
             <Icon icon="lucide:mouse-pointer-click" width="24" height="24" />
             <span>Prenota ora</span>
         </Button>

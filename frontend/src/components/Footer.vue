@@ -8,12 +8,13 @@
         </div>
   
         <!-- Navigation Links -->
-        <nav class="flex space-x-6 text-sm">
+        <nav class="flex space-x-6 text-sm" aria-label="navigazione secondaria che rimanda alle varie pagine del sito e alla pagina LinkedIn">
           <RouterLink to="/" class="hover:text-white hover:bg-lime-500 transition-all duration-200">Su di noi</RouterLink>
           <RouterLink to="/products" class="hover:text-white hover:bg-lime-500 transition-all duration-200">Prodotti</RouterLink>
           <RouterLink to="/contacts" class="hover:text-white hover:bg-lime-500 transition-all duration-200">Contatti</RouterLink>
           <a
             href="https://www.linkedin.com/in/tuo-username"
+            aria-label="Link alla pagina LinkedIn"
             target="_blank"
             rel="noopener noreferrer"
             class="hover:text-white transition"

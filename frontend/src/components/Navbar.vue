@@ -13,7 +13,10 @@
         <RouterLink to="/contacts" class="text-white hover:bg-lime-500 rounded-md transition-all duration-200">Contatti</RouterLink>
       </li>
     </ul>
-    <Button 
+    <Button
+      aria-label="bottone per aprire il menu mobile" 
+      :aria-expanded="isOpen.toString()"
+      aria-controls="mobile-menu"
       class="flex md:hidden"
       variant="navbar"
       size="md"
@@ -24,7 +27,10 @@
     </Button>
   </nav>
   <!--MOBILE MENU-->
-  <ul v-if="isOpen" class="sticky top-20 left-0 z-50 md:hidden bg-emerald-600 w-full flex flex-col items-center gap-3 py-4 border-b-2 border-emerald-800">
+  <ul v-if="isOpen"
+    aria-label="mobile menu" 
+    id="mobile-menu"
+    class="sticky top-20 left-0 z-50 md:hidden bg-emerald-600 w-full flex flex-col items-center gap-3 py-4 border-b-2 border-emerald-800">
     <li>
       <RouterLink to="/" @click="isOpen = false" class="block text-white hover:bg-lime-500 rounded-md transition-all duration-200">Su di Noi</RouterLink>
     </li>
