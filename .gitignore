@@ -4,7 +4,7 @@ node_modules/
 # Ignore environment files
 .env
 .env.production
-
+.env.*
 # Ignore build outputs
 dist
 dist-ssr
