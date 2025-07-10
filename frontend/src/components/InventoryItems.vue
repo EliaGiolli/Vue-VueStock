@@ -17,11 +17,16 @@
       <Icon icon="lucide:box" width="24" height="24" />
     </div>
     
-    <div v-else class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-      <div 
+   <motion.div 
+    v-else class="grid gap-4 md:grid-cols-2 lg:grid-cols-3"
+    >
+      <motion.div
         v-for="product in products" 
         :key="product.id"
         class="bg-white p-4 rounded-lg shadow-md border border-gray-200"
+        :initial="{ opacity: 0, y: 20 }"
+        :animate="{ opacity: 1, y: 0 }"
+        :transition="{ duration: 0.4, ease: 'easeOut' }"
       >
         <h3 class="font-semibold text-lg">{{ product.name }}</h3>
         <p class="text-gray-600">Quantità: {{ product.quantity }}</p>
@@ -33,17 +38,19 @@
           @click="deleteProduct(product.id)"
           class="mt-2 flex gap-2"
         >
-        <Icon icon="lucide:mouse-pointer-click" width="20" height="20" />
+          <Icon icon="lucide:mouse-pointer-click" width="20" height="20" />
           <span>Elimina</span>
         </Button>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
+
   </section>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue';
 import { Icon } from '@iconify/vue';
+import { motion } from 'motion-v';
 import Button from './Button.vue';
 
 const products = ref([]);

@@ -1,5 +1,10 @@
 <template>
-    <section class="bg-white flex md:justify-center text-center md:text-xl p-6">
+    <motion.section 
+        class="bg-white flex md:justify-center text-center md:text-xl p-6 w-1/2 mx-auto rounded-lg shadow-lg"
+        :initial="{ opacity: 0, y: 20 }"
+        :animate="{ opacity: 1, y: 0 }"
+        :transition="{ duration: 0.6, ease: 'easeOut' }"
+        >
         <TabView>
             <TabPanel header="Prodotti">
                 <p class="m-0">
@@ -17,10 +22,11 @@
                 </p>
             </TabPanel>
         </TabView>
-    </section>
+    </motion.section>
 </template>
 
 <script setup>
 import TabView from 'primevue/tabview';
 import TabPanel from 'primevue/tabpanel';
+import { motion } from 'motion-v';
 </script>
