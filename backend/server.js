@@ -9,7 +9,9 @@ dotenv.config();
 const app = express();
 
 // Middlewares
-app.use(cors());
+app.use(cors({
+  origin: 'https://vue-vue-stock.vercel.app'
+}));
 app.use(express.json());
 
 // Connection to MongoDB
@@ -21,9 +23,9 @@ mongoose.connect(process.env.MONGODB_URI)
 app.use('/api/products', productList);
 app.use('/api/contacts', contactList);
 
-process.on('Errore inaspettato', (err) => {
-  console.error('errore non gestito', err);
-  process.exit();
-})
+process.on('unhandledRejection', (err) => {
+  console.error('Promise rejection non gestita:', err);
+  process.exit(1);
+});
 
 app.listen(3000, () => console.log('✅ Backend su', process.env.LOCALHOST));
