@@ -15,7 +15,6 @@ You can **add products**, **display them dynamically** with `v-for`, and it's re
 - ✅ **Component-based structure** (`Navbar`, `InputForm`, `Footer`, etc.)
 - ✅ **Form validation with VeeValidate** for robust and beginner-friendly input checking
 - ✅ Modern UI with **Tailwind CSS**
-- ✅ **MongoDB integration** for persistent product storage
 - ✅ **Vue Router** for page navigation
 - ✅ **PrimeVue** for rich UI components
 - ✅ **Vue Iconify** for beautiful icons
@@ -31,7 +30,6 @@ You can **add products**, **display them dynamically** with `v-for`, and it's re
 - **[Vue Iconify](https://iconify.design/docs/vue/)** for a huge collection of icons
 - **[VeeValidate](https://vee-validate.logaretm.com/v4/)** for easy and powerful form validation
 - **[Tailwind CSS](https://tailwindcss.com/)** v4 for a responsive and modern style
-- **MongoDB** (via backend) for real database storage
 - **Vite** (for modern frontend development)
 
 ---
@@ -66,20 +64,6 @@ Make sure your backend is running on this port.
 ```bash
 npm run dev
 ```
-
----
-
-## 🔗 Backend Communication
-
-CRUD operations are performed via HTTP calls to the Express backend (with MongoDB):
-
-- **GET** `${import.meta.env.VITE_API_URL}/api/products` — Get all products
-- **POST** `${import.meta.env.VITE_API_URL}/api/products` — Add a product
-- **DELETE** `${import.meta.env.VITE_API_URL}/api/products/:id` — Delete a product
-
-**Note:** The frontend now automatically maps MongoDB's `_id` field to `id` for easier handling in Vue. This makes deleting and updating products much simpler and less error-prone for beginners.
-
----
 
 ## 📌 Future Goals
 
