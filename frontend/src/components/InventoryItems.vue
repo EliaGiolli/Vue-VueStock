@@ -52,48 +52,32 @@ import { ref, onMounted } from 'vue';
 import { Icon } from '@iconify/vue';
 import { motion } from 'motion-v';
 import Button from './Button.vue';
+import { products as productsArray } from '@/mock/products.js'; // <-- NEW: import local array
 
 const products = ref([]);
-const loading = ref(true);
+const loading = ref(false);
 const error = ref('');
 
-const fetchProducts = async () => {
-  try {
-    loading.value = true;
-    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/products`);
-    if (!response.ok) throw new Error('Errore nel caricamento');
-    const data = await response.json();
-    // Map _id to id for frontend consistency(Mongoose espexts _id)
-    products.value = data.map(p => ({
-      ...p,
-      id: p._id
-    }));
-  } catch (err) {
-    error.value = err.message;
-  } finally {
+const fetchProducts = () => {
+  loading.value = true;
+  error.value = '';
+  // Simulate async fetch
+  setTimeout(() => {
+    products.value = productsArray.slice();
     loading.value = false;
-  }
+  }, 200);
 };
 
-const deleteProduct = async (id) => {
-  try {
-    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/products/${id}`, {
-      method: 'DELETE'
-    });
-    if (!response.ok) throw new Error('Errore nell\'eliminazione');
-    await fetchProducts(); // Refresh the list
-  } catch (err) {
-    error.value = err.message;
-  }
+const deleteProduct = (id) => {
+  const idx = productsArray.findIndex(p => p.id === id);
+  if (idx !== -1) productsArray.splice(idx, 1);
+  fetchProducts();
 };
 
-// Listen for custom event to refresh products
 const refreshProducts = () => {
   fetchProducts();
 };
 
-//In Vue 3, by default, child components don't expose their methods to parent components
-// Expose method for parent to call
 defineExpose({ refreshProducts });
 
 onMounted(fetchProducts);

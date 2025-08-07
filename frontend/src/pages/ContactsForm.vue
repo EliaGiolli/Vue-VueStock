@@ -66,7 +66,7 @@
 
 <script setup>
 import Button from '@/components/Button.vue';
-import { reactive, ref, onMounted } from 'vue';
+import { reactive, ref } from 'vue';
 import { Form, Field, ErrorMessage } from 'vee-validate';
 
 const userCredentials = reactive({
@@ -79,48 +79,23 @@ const successMessage = ref('');
 const errorMessage = ref('');
 const isLoading = ref(false);
 
-//API call - POST method
 const handleSubmit = async () => {
   successMessage.value = '';
   errorMessage.value = '';
   isLoading.value = true;
 
-  try {
-    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/contacts`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(userCredentials)
-    });
-
-    if (!response.ok) throw new Error('Errore nella richiesta');
-
+  // Simulate sending
+  setTimeout(() => {
     successMessage.value = '✅ Messaggio inviato con successo!';
-    // resetta i campi
     userCredentials.name = '';
     userCredentials.email = '';
     userCredentials.message = '';
-
+    isLoading.value = false;
     setTimeout(() => {
       successMessage.value = '';
     }, 3000);
-
-  } catch (error) {
-    errorMessage.value = '❌ Errore durante l\'invio del messaggio.';
-    console.error(error);
-  }finally{
-    isLoading.value = false;
-  }
+  }, 800);
 };
-
-// onMounted will populate the form when the component is mounted
-onMounted(() => {
-    userCredentials.name = 'Mario Rossi';
-    userCredentials.message = 'Hai qualcosa da chiederci? Lascia la tua recensione!';
-    userCredentials.email = 'email@gmail.com'
-    handleSubmit();
-});
 
 //Veevalidate functions
 function validateEmail(value){

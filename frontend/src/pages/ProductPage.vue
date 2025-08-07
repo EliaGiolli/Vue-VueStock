@@ -17,31 +17,17 @@
 <script setup>
 import InputForm from '@/components/InputForm.vue';
 import InventoryItems from '@/components/InventoryItems.vue';
-
 import { ref } from 'vue';
+import { products } from '@/mock/products.js'; // <-- NEW: import local array
 
 const inventoryRef = ref(null);
 
-const handleAddProduct = async (product) => {
-  try {
-    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/products`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(product)
-    });
-    
-    if (!response.ok) throw new Error('Errore nell\'aggiunta del prodotto');
-    
-    // Refresh the inventory list
-    inventoryRef.value?.refreshProducts();
-    
-    // Clear the form (you can add this to InputForm)
-    // formRef.value?.resetForm();
-    
-  } catch (error) {
-    console.error('Error adding product:', error);
-  }
+const handleAddProduct = (product) => {
+  // Add product to local array
+  products.push({
+    ...product,
+    id: Date.now().toString()
+  });
+  inventoryRef.value?.refreshProducts();
 };
 </script>
